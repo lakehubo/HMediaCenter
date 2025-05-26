@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
  * 用户相关接口
  */
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/api/auth")
 @Tag(name = "用户管理", description = "用户登录、资料、鉴权接口")
 public class UserController {
 
@@ -30,11 +30,11 @@ public class UserController {
      */
     @Operation(
             summary = "登录",
-            description = "管理员登录，返回JWT Token"
-//            responses = {
-//                    @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200", description = "登录成功"),
-//                    @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "401", description = "用户名或密码错误")
-//            }
+            description = "管理员登录，返回JWT Token",
+            responses = {
+                    @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200", description = "登录成功"),
+                    @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "401", description = "用户名或密码错误")
+            }
     )
     @PostMapping("/login")
     public ApiResponse<LoginRespDto> login(@RequestBody LoginRequest req) {
@@ -88,7 +88,7 @@ public class UserController {
         if (!ok) {
             throw new BizException(400, "原密码错误或新密码不合法");
         }
-        return ApiResponse.success("修改成功", null);
+        return ApiResponse.success(null,"修改成功");
     }
 
     /**
@@ -101,6 +101,6 @@ public class UserController {
     )
     @GetMapping("/check-token")
     public ApiResponse<Void> checkToken() {
-        return ApiResponse.success("Token 有效", null);
+        return ApiResponse.success(null,"Token 有效");
     }
 }

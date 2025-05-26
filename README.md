@@ -51,3 +51,26 @@ HMediaCenterServer/
 │   │       └── ...
 ├── pom.xml
 └── README.md
+```
+
+⚡️ 运行环境要求（含 ffmpeg/ffprobe）
+本项目依赖于本地 ffmpeg / ffprobe，用于自动提取多媒体文件元数据（如视频时长、分辨率、编码格式等）。请确保已正确安装，并将其加入系统环境变量（PATH），否则多媒体扫描与信息同步等功能将无法正常工作。
+
+* ffmpeg/ffprobe 获取方式：
+    * macOS:
+        ```text
+        brew install ffmpeg
+        ```
+    * Ubuntu / Debian:
+        ```text
+        sudo apt update
+        sudo apt install ffmpeg
+        ```
+    * Windows:<br>
+    前往 ffmpeg.org 下载适合 Windows 的静态编译版，解压后将 bin 目录添加到环境变量 Path 中。
+
+* 环境检测：<br>
+命令行输入 ffmpeg -version 和 ffprobe -version，均能输出版本号则表示配置成功。
+
+>说明：
+本服务会在资源扫描/同步时自动调用本地 ffprobe 提取媒体元信息。未正确配置 ffmpeg/ffprobe 时，相关功能将被跳过或报错。

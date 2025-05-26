@@ -3,7 +3,7 @@ package com.lake.hmediacenterserver.service;
 import com.lake.hmediacenterserver.common.BizException;
 import com.lake.hmediacenterserver.common.JwtUtil;
 import com.lake.hmediacenterserver.entity.User;
-import com.lake.hmediacenterserver.respository.UserRepository;
+import com.lake.hmediacenterserver.repository.UserRepository;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

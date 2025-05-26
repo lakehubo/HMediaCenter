@@ -1,4 +1,4 @@
-package com.lake.hmediacenterserver.respository;
+package com.lake.hmediacenterserver.repository;
 
 import com.lake.hmediacenterserver.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;

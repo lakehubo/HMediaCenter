@@ -1,10 +1,8 @@
 package com.lake.hmediacenterserver.config;
 
 import com.lake.hmediacenterserver.entity.User;
-import com.lake.hmediacenterserver.respository.UserRepository;
+import com.lake.hmediacenterserver.repository.UserRepository;
 import com.lake.hmediacenterserver.security.JwtAuthenticationFilter;
-import com.lake.hmediacenterserver.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -65,7 +63,7 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
-                                "/api/user/login",
+                                "/api/auth/login",
                                 "/swagger-ui/**",
                                 "/swagger-ui.html",
                                 "/v3/api-docs/**"
